@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.minimap.autohide": true,
+		"editor.minimap.enabled": false,
+		"editor.acceptSuggestionOnCommitCharacter": false,
+		"workbench.iconTheme": "material-icon-theme"
+	}
+}

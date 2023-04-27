@@ -1,0 +1,87 @@
+== dockerimage-openjdk
+
+=== 关于本项目
+
+本项目镜像一般用于Java语言应用程序的基础镜像使用。
+
+=== 拉取镜像
+
+[,bash]
+----
+#!/bin/bash
+
+docker image pull yingzhuo/openjdk:8-alpine
+docker image pull yingzhuo/openjdk:17-alpine
+----
+
+=== 架构相关
+
+[options="header",format="psv"]
+|====
+| 镜像 | 支持架构 | JAVA_HOME
+| yingzhuo/openjdk:8-alpine  | linux/amd64,linux/arm64 | /usr/lib/jvm/jdk (link)
+| yingzhuo/openjdk:17-alpine | linux/amd64,linux/arm64 | /usr/lib/jvm/jdk (link)
+|====
+
+=== 预设用户
+
+[options="header",format="psv"]
+|====
+| 用户 | 用户组 | 用途
+| java | java,root,wheel | 启动Java程序
+|====
+
+=== 环境变量
+
+[options="header",format="psv"]
+|====
+| Name | 默认值
+| TZ | UTC
+| LANG | en_US.UTF-8
+|====
+
+=== 预装软件
+
+[options="header",format="psv"]
+|====
+| 软件 | 预装理由
+| bash | 较sh功能更强大一些
+| curl | 用于 _docker-compose_ 等工具健康检查。
+| fontconfig, ttf-dejavu | Java语言图像输出
+| tzdata | 用于调整时区
+|====
+
+=== 预设目录
+
+[options="header",format="psv"]
+|====
+| 目录   | 推荐用法
+| /opt/ | 应用程序根目录
+| /opt/script/ | 应用程序其他脚本目录 (已加入 _PATH_ )
+| /opt/log/ | 应用程序输出日志目录
+| /opt/lib/ | 应用程序依赖库目录
+| /opt/data/ | 应用程序数据目录
+| /opt/etc/  | 应用程序配置文件目录 建议使用 _--spring.config.additional-location=file:/opt/etc/_ 参数启动 _SpringBoot_ 程序
+| /opt/secret/ | 应用程序需要的密钥数据目录
+| /opt/tmp/ | 应用程序临时目录 需要通过指定 _-Djava.io.tmpdir=/opt/tmp/_ 指定
+| /opt/doc/ | 应用程序文档
+| /opt/config-slot/00/ 到 /opt/config-slot/15/ | 16个预设配置目录用于配合使用 _kubernetes_ 的 _ConfigMap_ 或 _Secret_。
+|====
+
+=== 参考资料
+
+* link:https://www.docker.com/blog/multi-arch-build-and-images-the-simple-way/[Docker官方博客]
+
+=== 许可证
+
+* link:{docdir}/LICENSE[Apache-2.0]
+
+=== Issues
+
+请点击link:https://github.com/yingzhuo/dockerimage-openjdk/issues[这里]。
+
+=== 联系我
+
+* 微信: _yingzhor_
+* QQ: _23007067_
+* 电子邮件: _mailto:yingzhor@gmail.com[yingzhor@gmail.com]_
