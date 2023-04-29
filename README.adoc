@@ -10,8 +10,17 @@
 ----
 #!/bin/bash
 
+# ------
+# 阿里云或DockerHub二选一即可
+# ------
+
+# DockerHub
 docker image pull yingzhuo/openjdk:8-alpine
 docker image pull yingzhuo/openjdk:17-alpine
+
+# 阿里云
+docker image pull registry.cn-shanghai.aliyuncs.com/yingzhuo/openjdk:8-alpine
+docker image pull registry.cn-shanghai.aliyuncs.com/yingzhuo/openjdk:17-alpine
 ----
 
 === 架构相关
