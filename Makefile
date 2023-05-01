@@ -14,7 +14,7 @@ build-v17:
 		-t yingzhuo/openjdk:17-alpine \
 		-t yingzhuo/openjdk:latest \
 		-t registry.cn-shanghai.aliyuncs.com/yingzhuo/openjdk:17-alpine \
-		-t registry.cn-shanghai.aliyuncs.com/yingzhuo/latest \
+		-t registry.cn-shanghai.aliyuncs.com/yingzhuo/openjdk:latest \
 		$(CURDIR)/17/
 
 build-all: build-v8 build-v17
