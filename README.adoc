@@ -11,16 +11,22 @@
 #!/bin/bash
 
 # ------
-# 阿里云或DockerHub二选一即可
+# 阿里云 或 DockerHub 二选一即可
 # ------
 
-# DockerHub
+# DockerHub - v8
 docker image pull yingzhuo/openjdk:8-alpine
-docker image pull yingzhuo/openjdk:17-alpine
 
-# 阿里云
+# 阿里云 - v8
 docker image pull registry.cn-shanghai.aliyuncs.com/yingzhuo/openjdk:8-alpine
+
+# DockerHub - v17
+docker image pull yingzhuo/openjdk:17-alpine
+docker image pull yingzhuo/openjdk:latest
+
+# 阿里云 - v17
 docker image pull registry.cn-shanghai.aliyuncs.com/yingzhuo/openjdk:17-alpine
+docker image pull registry.cn-shanghai.aliyuncs.com/yingzhuo/openjdk:latest
 ----
 
 === 架构相关
@@ -28,8 +34,8 @@ docker image pull registry.cn-shanghai.aliyuncs.com/yingzhuo/openjdk:17-alpine
 [options="header",format="psv"]
 |====
 | 镜像 | 支持架构 | JAVA_HOME
-| yingzhuo/openjdk:8-alpine  | linux/amd64,linux/arm64 | /usr/lib/jvm/jdk (link)
-| yingzhuo/openjdk:17-alpine | linux/amd64,linux/arm64 | /usr/lib/jvm/jdk (link)
+| v8  | linux/amd64,linux/arm64 | /usr/lib/jvm/jdk (link)
+| v17 | linux/amd64,linux/arm64 | /usr/lib/jvm/jdk (link)
 |====
 
 === 预设用户
@@ -59,6 +65,10 @@ docker image pull registry.cn-shanghai.aliyuncs.com/yingzhuo/openjdk:17-alpine
 | fontconfig, ttf-dejavu | Java语言图像输出
 | tzdata | 用于调整时区
 |====
+
+=== 软件源
+
+软件源已经更换为link:https://mirrors.aliyun.com/alpine/[阿里源]。
 
 === 预设目录
 

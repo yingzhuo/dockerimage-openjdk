@@ -35,7 +35,9 @@ RUN addgroup -S java && \
 
 USER root:root
 
-ENV BUILDX_ARCH="${TARGETOS}-${TARGETARCH}"
 ENV PATH="$PATH:/opt/script"
+ENV BUILDX_ARCH="${TARGETOS}-${TARGETARCH}"
+
+ENTRYPOINT [ "java", "-version" ]
 
 VOLUME /opt/
