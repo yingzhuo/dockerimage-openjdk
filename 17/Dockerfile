@@ -2,8 +2,8 @@ FROM bellsoft/liberica-openjdk-alpine:17
 
 LABEL maintainer="应卓 yingzhor@gmail.com"
 
-RUN addgroup -S java && \
-    adduser --no-create-home -S java -G java && \
+RUN addgroup --gid 1000 -S java && \
+    adduser --uid 1000 --no-create-home -S java -G java && \
     addgroup java root && \
     addgroup java wheel && \
     sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories && \
@@ -31,9 +31,8 @@ RUN addgroup -S java && \
     mkdir -p /opt/config-slot/12/ && \
     mkdir -p /opt/config-slot/13/ && \
     mkdir -p /opt/config-slot/14/ && \
-    mkdir -p /opt/config-slot/15/
-
-USER root:root
+    mkdir -p /opt/config-slot/15/ && \
+    chown -R java:java /opt/
 
 ENV PATH="$PATH:/opt/script"
 ENV BUILDX_ARCH="${TARGETOS}-${TARGETARCH}"

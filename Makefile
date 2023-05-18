@@ -17,6 +17,9 @@ build-v17:
 		-t registry.cn-shanghai.aliyuncs.com/yingzhuo/openjdk:latest \
 		$(CURDIR)/17/
 
+test:
+	@docker image build -t yingzhuo/jdk:temp $(CURDIR)/17/
+
 build-all: build-v8 build-v17
 
 github:
